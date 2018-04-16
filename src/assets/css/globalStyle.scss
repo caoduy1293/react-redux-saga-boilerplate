@@ -1,0 +1,96 @@
+.login-form {
+  padding-top: 100px !important;
+  padding-bottom: 100px !important;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  background: #fff;
+  margin: 16px;
+}
+#components-layout-demo-custom-trigger .logo img{
+  width: 100%;
+}
+
+.drawer {
+  .ant-menu-inline,
+  .ant-menu-vertical {
+    border-right: none;
+  }
+  &-content {
+    padding-top: 40px;
+  }
+  &-left {
+    .ant-menu-inline .ant-menu-item:after,
+    .ant-menu-vertical .ant-menu-item:after {
+      left: 0;
+      right: auto;
+    }
+  }
+}
+
+.drawer-wrapper {
+  .drawer {
+    animation: AlphaTo .3s ease-out .3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
+@keyframes AlphaTo {
+  to {
+    opacity: 1;
+    left: 0;
+    transform: translateX(0px);
+  }
+}
+
+.parent-demo {
+  position: relative;
+  overflow: hidden;
+  .drawer {
+    position: absolute;
+  }
+}
+
+//Calender
+
+.example {
+  position: relative;
+  font-size: 14px;
+  width: 100%;
+  margin: auto;
+  min-height: 500px;
+  &,
+  & > * {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rbc-calendar {
+    flex: 1;
+    height: 100%;
+    .rbc-btn-group {
+      display: unset;
+      white-space: unset;
+    }
+  }
+}

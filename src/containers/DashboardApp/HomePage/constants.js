@@ -1,0 +1,1 @@
+export const SELECTOR_ID_PAGE = 'homePage';

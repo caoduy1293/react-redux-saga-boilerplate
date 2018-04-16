@@ -1,0 +1,71 @@
+.login-form {
+  padding-top: 100px !important;
+  padding-bottom: 100px !important; }
+
+.login-form-forgot {
+  float: right; }
+
+.login-form-button {
+  width: 100%; }
+
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s; }
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff; }
+
+#components-layout-demo-custom-trigger .logo {
+  background: #fff;
+  margin: 16px; }
+
+#components-layout-demo-custom-trigger .logo img {
+  width: 100%; }
+
+.drawer .ant-menu-inline,
+.drawer .ant-menu-vertical {
+  border-right: none; }
+.drawer-content {
+  padding-top: 40px; }
+.drawer-left .ant-menu-inline .ant-menu-item:after,
+.drawer-left .ant-menu-vertical .ant-menu-item:after {
+  left: 0;
+  right: auto; }
+
+.drawer-wrapper .drawer {
+  animation: AlphaTo .3s ease-out .3s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transform: translateX(-40px); }
+
+@keyframes AlphaTo {
+  to {
+    opacity: 1;
+    left: 0;
+    transform: translateX(0px); } }
+.parent-demo {
+  position: relative;
+  overflow: hidden; }
+  .parent-demo .drawer {
+    position: absolute; }
+
+.example {
+  position: relative;
+  font-size: 14px;
+  width: 100%;
+  margin: auto;
+  min-height: 500px; }
+  .example, .example > * {
+    display: flex;
+    flex-direction: column; }
+  .example .rbc-calendar {
+    flex: 1;
+    height: 100%; }
+    .example .rbc-calendar .rbc-btn-group {
+      display: unset;
+      white-space: unset; }
+
+/*# sourceMappingURL=globalStyle.css.map */
