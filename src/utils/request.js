@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
-import {LOCAL_STORAGE_ID_KEY} from "../containers/AppRoot/constants";
+import { push } from "react-router-redux";
+import {LOCAL_STORAGE_ID_KEY, ROUTE_TREE} from "../containers/AppRoot/constants";
 
 /**
  * Parses the JSON returned by a network request
@@ -26,7 +27,9 @@ function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
     }
-
+    if(response.status === 401) {
+        push('/' + ROUTE_TREE.login);
+    }
     const error = new Error(response.statusText);
     error.response = response;
     throw error;

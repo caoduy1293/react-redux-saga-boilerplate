@@ -9,6 +9,7 @@ import { createStructuredSelector } from 'reselect/es';
 import {changeUserInput, loginToSystem} from '../../AppRoot/actions';
 import {getAuthenticateError, getAuthenticateLoading, getAuthenticateMessage} from '../../AppRoot/selectors';
 import {Form, Icon, Input, Button, Layout, Row, Col, Spin, Alert} from 'antd';
+import {LOCAL_STORAGE_ID_KEY} from "../../AppRoot/constants";
 const FormItem = Form.Item;
 
 const AppWrapper = styled.div`
@@ -18,6 +19,14 @@ const emailNameField = 'emailUser';
 const passNameField = 'passUser';
 
 export class LoginPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+    static contextTypes = {
+        router: propTypes.object,
+    };
+    componentDidMount() {
+        if(localStorage.getItem(LOCAL_STORAGE_ID_KEY.token)) {
+            this.context.router.history.push('/');
+        }
+    }
     /**
      * when initial state username is not null, submit the form to load repos
      */

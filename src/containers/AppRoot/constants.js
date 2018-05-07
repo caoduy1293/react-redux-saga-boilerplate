@@ -16,6 +16,7 @@ export const API_URL = {
     },
     dashboardApp: {
         getRooms: `${APP_ROOT_API}rooms`,
+        bookRoom: `${APP_ROOT_API}events`,
         getEvents: `${APP_ROOT_API}events?idRoom={idRoom}`,
     },
 };

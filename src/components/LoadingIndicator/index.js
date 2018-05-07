@@ -1,9 +1,11 @@
 import React from 'react';
 
-import {Spin} from "antd";
+import {Layout, Spin} from "antd";
 
 const LoadingIndicator = () => (
-    <Spin size="large" />
+    <Spin size="large">
+        <Layout style={{ minHeight: "350px" }} />
+    </Spin>
 );
 
 export default LoadingIndicator;

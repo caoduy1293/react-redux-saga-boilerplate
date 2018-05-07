@@ -1,4 +1,4 @@
-import { put, call, fork, select, takeEvery, all } from 'redux-saga/effects';
+import { put, call, fork, select, takeEvery, all, getContext } from 'redux-saga/effects';
 import { push } from "react-router-redux";
 
 import {
@@ -22,6 +22,12 @@ export function* authToSystem() {
 }
 
 export function* authToSystemSuccess() {
+    yield put(push('/'));
+}
+
+export function* loginToSystemSuccess() {
+    // const history = yield getContext('history');
+    // history.push('/');
     yield put(push('/'));
 }
 
@@ -66,7 +72,7 @@ export function* watchLoginSuccess() {
       takeEvery will fork a new `getAllProducts` task on each GET_ALL_PRODUCTS actions
       i.e. concurrent GET_ALL_PRODUCTS actions are allowed
     */
-    yield takeEvery(LOGIN_SUCCESS, authToSystem);
+    yield takeEvery(LOGIN_SUCCESS, loginToSystemSuccess);
 }
 
 export function* watchLogin() {

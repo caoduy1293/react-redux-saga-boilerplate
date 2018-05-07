@@ -18,13 +18,13 @@ import './global-styles';
 
 import App from "./containers/AppRoot";
 
-
 // Create redux store with history
 const initialState = {};
 const history = createHistory();
 const store = configureStore(initialState, history);
 
 store.runSaga(rootSaga);
+store.setContextSaga({history});
 
 const MOUNT_NODE = document.getElementById('root');
 

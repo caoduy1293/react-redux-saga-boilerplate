@@ -6,6 +6,7 @@ export const CHANGE_USER_INPUT = 'Authorization App - change user input';
 export const LOGIN = 'Authorization App - login';
 export const LOGIN_SUCCESS = 'Authorization App - login successfully';
 export const LOGIN_FAIL = 'Authorization App - login fail';
+export const LOGOUT = 'Authorization App - logOut';
 
 export function authenticateUser() {
     return {

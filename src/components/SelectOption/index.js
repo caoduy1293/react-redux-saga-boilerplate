@@ -20,12 +20,12 @@ function SelectOption(props) {
             <Option key={value._id} value={value._id}>{value.name}</Option>
         ));
         result = (
-            <Select defaultValue={'disabled'} style={{ width: 200 }} onChange={props.onToggle}>
-                <Option key={'noValue'} value="disabled" disabled>{props.defaultLabel || 'Select Options'}</Option>
+            <Select placeholder={props.defaultLabel || 'Select Options'} style={{ width: 200 }} onChange={props.onToggle}>
                 {content}
             </Select>
         );
     }
+
 
     result = props.values ? result : '';
 

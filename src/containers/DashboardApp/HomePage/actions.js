@@ -46,3 +46,26 @@ export function getEventsError(res) {
         res
     };
 }
+
+export const BOOK_ROOM = 'BookingApp/calendarApp/BOOK_ROOM';
+export const BOOK_ROOM_SUCCESS = 'BookingApp/calendarApp/BOOK_ROOM_SUCCESS';
+export const BOOK_ROOM_ERROR = 'BookingApp/calendarApp/BOOK_ROOM_ERROR';
+
+export function bookRooms(objEventBooking) {
+    return {
+        type: BOOK_ROOM,
+        objEventBooking
+    };
+}
+export function bookRoomsSuccess(res) {
+    return {
+        type: BOOK_ROOM_SUCCESS,
+        res
+    };
+}
+export function bookRoomsError(res) {
+    return {
+        type: BOOK_ROOM_ERROR,
+        res
+    };
+}

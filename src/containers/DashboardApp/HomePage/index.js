@@ -7,12 +7,12 @@ import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect/es";
 
 import AppLayoutWrapper from "../../SharedComponent/AppLayoutWrapper";
-import CalendarComponent from "./calendarComponent";
+import CalendarAppComponent from "./CalendarAppComponent";
 import injectReducer from "../../../utils/injectReducer";
 import injectSaga from "../../../utils/injectSaga";
 import {SELECTOR_ID_PAGE} from "./constants";
 import {getEvents, getRooms} from "./actions";
-import {getErrorState, getEventsState, getLoadingState, getMessageState, getRoomsState} from "./selectors";
+import {getEventsState, getLoadingState, getRoomsState} from "./selectors";
 import reducer from './reducer';
 import saga from './saga';
 
@@ -29,7 +29,10 @@ class DashboardContainer extends React.Component {
                     <meta name="description" content="A React.js Boilerplate application homepage"/>
                 </Helmet>
                 <AppLayoutWrapper>
-                    <CalendarComponent events={this.props.events} getEvents={this.props.getEventsFn} rooms={this.props.rooms}/>
+                    <CalendarAppComponent loading={this.props.loading}
+                                       events={this.props.events}
+                                       getEvents={this.props.getEventsFn}
+                                       rooms={this.props.rooms}/>
                 </AppLayoutWrapper>
             </Layout>
         );
@@ -40,8 +43,6 @@ DashboardContainer.propTypes = {
     rooms: propTypes.array,
     events: propTypes.array,
     loading: propTypes.bool,
-    error: propTypes.bool,
-    messages: propTypes.string,
     getRoomsFn: propTypes.func,
     getEventsFn: propTypes.func,
 };
@@ -57,8 +58,6 @@ const mapStateToProps = createStructuredSelector({
     rooms: getRoomsState(),
     events: getEventsState(),
     loading: getLoadingState(),
-    error: getErrorState(),
-    messages: getMessageState(),
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

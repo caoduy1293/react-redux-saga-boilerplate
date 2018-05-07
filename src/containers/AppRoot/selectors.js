@@ -3,39 +3,39 @@ import { createSelector } from 'reselect/es';
 import { SELECTOR_ID_PAGE } from './constants';
 import { GlobalStateName } from './reducer';
 
-const selectGlobal = (state) => state.get(SELECTOR_ID_PAGE);
+const selectGlobal = (state) => state[SELECTOR_ID_PAGE];
 
-const selectRoute = (state) => state.get('route');
+const selectRoute = (state) => state['route'];
 
 const getAuthenticateLoading = () => createSelector(
     selectGlobal,
-    (globalState) => globalState.get(GlobalStateName.loading)
+    (globalState) => globalState[GlobalStateName.loading]
 );
 const getAuthenticateError = () => createSelector(
     selectGlobal,
-    (globalState) => globalState.get(GlobalStateName.error)
+    (globalState) => globalState[GlobalStateName.error]
 );
 const getAuthenticateMessage = () => createSelector(
     selectGlobal,
-    (globalState) => globalState.get(GlobalStateName.message)
+    (globalState) => globalState[GlobalStateName.message]
 );
 const getAuthenticatedUser = () => createSelector(
     selectGlobal,
-    (globalState) => globalState.get(GlobalStateName.authenticatedUser)
+    (globalState) => globalState[GlobalStateName.authenticatedUser]
 );
 
 const getUserLoginInput = () => createSelector(
     selectGlobal,
-    (globalState) => globalState.get(GlobalStateName.userObjInput)
+    (globalState) => globalState[GlobalStateName.userObjInput]
 );
 const getUserToken = () => createSelector(
     selectGlobal,
-    (globalState) => globalState.get(GlobalStateName.accessToken)
+    (globalState) => globalState[GlobalStateName.accessToken]
 );
 
 const makeSelectLocation = () => createSelector(
     selectRoute,
-    (routeState) => routeState.get('location').toJS()
+    (routeState) => routeState['location'].toJS()
 );
 
 export {

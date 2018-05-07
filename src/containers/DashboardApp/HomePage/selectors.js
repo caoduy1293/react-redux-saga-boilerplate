@@ -1,43 +1,46 @@
 import { createSelector } from 'reselect/es';
+import { get } from 'lodash';
 
 import { SELECTOR_ID_PAGE } from './constants';
 import { HomePageStateName } from './reducer';
 
-const selectPageState = (state) => state.get(SELECTOR_ID_PAGE);
+const selectPageState = (state) => state[SELECTOR_ID_PAGE];
 
 const getLoadingState = () => createSelector(
     selectPageState,
-    (pageState) => pageState.get(HomePageStateName.loading)
-);
-const getErrorState = () => createSelector(
-    selectPageState,
-    (pageState) => pageState.get(HomePageStateName.error)
-);
-const getMessageState = () => createSelector(
-    selectPageState,
-    (pageState) => pageState.get(HomePageStateName.message)
+    (pageState) => pageState[HomePageStateName.loading]
 );
 const getRoomSelectedState = () => createSelector(
     selectPageState,
-    (pageState) => pageState.get(HomePageStateName.selectedRoom)
+    (pageState) => pageState[HomePageStateName.selectedRoom]
 );
 
 const getRoomsState = () => createSelector(
     selectPageState,
-    (pageState) => pageState.get(HomePageStateName.rooms)
+    (pageState) => pageState[HomePageStateName.rooms]
 );
 
 const getEventsState = () => createSelector(
     selectPageState,
-    (pageState) => pageState.get(HomePageStateName.events)
+    (pageState) => pageState[HomePageStateName.events]
+);
+
+const getEventsBookingFormLoading = () => createSelector(
+    selectPageState,
+    (pageState) => get(pageState, HomePageStateName.eventBookingFormLoading)
+);
+
+const getEventsBookingFormCreated = () => createSelector(
+    selectPageState,
+    (pageState) => get(pageState, HomePageStateName.eventBookingFormDataCreate)
 );
 
 export {
     selectPageState,
     getLoadingState,
-    getMessageState,
-    getErrorState,
     getRoomsState,
     getEventsState,
     getRoomSelectedState,
+    getEventsBookingFormLoading,
+    getEventsBookingFormCreated,
 };

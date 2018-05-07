@@ -2,10 +2,10 @@
  * Combine all reducers in this file and export the combined reducers.
  */
 
-import { fromJS } from 'immutable';
-import { combineReducers } from 'redux-immutable';
+import { combineReducers } from 'redux';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { reducer as reduxFormReducer } from 'redux-form'
+import { reducer as form } from "redux-form";
+import {reducer as toastrReducer} from 'react-redux-toastr'
 
 import globalReducer from './containers/AppRoot/reducer';
 import languageProviderReducer from './containers/SharedComponent/LanguageProvider/reducer';
@@ -19,9 +19,9 @@ import languageProviderReducer from './containers/SharedComponent/LanguageProvid
  */
 
 // Initial routing state
-const routeInitialState = fromJS({
+const routeInitialState = {
   location: null,
-});
+};
 
 /**
  * Merge route into the global application state
@@ -29,10 +29,11 @@ const routeInitialState = fromJS({
 function routeReducer(state = routeInitialState, action) {
   switch (action.type) {
     /* istanbul ignore next */
-    case LOCATION_CHANGE:
-      return state.merge({
-        location: action.payload,
-      });
+      case LOCATION_CHANGE:
+      return {
+          ...state,
+          location: action.payload,
+      };
     default:
       return state;
   }
@@ -43,10 +44,11 @@ function routeReducer(state = routeInitialState, action) {
  */
 export default function createReducer(injectedReducers) {
   return combineReducers({
+    form, // mounted under "form"
+    toastr: toastrReducer, // <- Mounted at toastr.
     route: routeReducer,
     global: globalReducer,
     language: languageProviderReducer,
-    form: reduxFormReducer, // mounted under "form"
     ...injectedReducers,
   });
 }
