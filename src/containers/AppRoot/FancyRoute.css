@@ -1,0 +1,15 @@
+#nprogress .bar {
+  height: 5px;
+  background: #29d; }
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d; }
+
+#nprogress .spinner-icon {
+  border: solid 3px transparent;
+  width: 25px;
+  height: 25px;
+  border-top-color: #29d;
+  border-left-color: #29d; }
+
+/*# sourceMappingURL=FancyRoute.css.map */

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,eAAgB;EACd,MAAM,EAAE,GAAG;EACX,UAAU,EAJK,IAAI;;AAOrB,eAAgB;EACd,UAAU,EAAE,2BAAiD;;AAG/D,wBAAyB;EACvB,MAAM,EAAE,qBAAqB;EAC7B,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAfD,IAAI;EAgBnB,iBAAiB,EAhBF,IAAI",
+"sources": ["FancyRoute.scss"],
+"names": [],
+"file": "FancyRoute.css"
+}
