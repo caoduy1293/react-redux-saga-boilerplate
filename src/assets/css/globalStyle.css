@@ -20,10 +20,11 @@
 
 #components-layout-demo-custom-trigger .logo {
   background: #fff;
-  margin: 16px; }
+  margin: 16px;
+  text-align: center; }
 
 #components-layout-demo-custom-trigger .logo img {
-  width: 100%; }
+  max-width: 80%; }
 
 .drawer .ant-menu-inline,
 .drawer .ant-menu-vertical {
@@ -67,6 +68,9 @@
     .example .rbc-calendar .rbc-btn-group {
       display: unset;
       white-space: unset; }
+
+.rbc-toolbar button {
+  width: 100px; }
 
 .booking-room {
   width: 100%; }

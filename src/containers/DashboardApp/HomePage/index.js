@@ -6,7 +6,6 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect/es";
 
-import AppLayoutWrapper from "../../SharedComponent/AppLayoutWrapper";
 import CalendarAppComponent from "./CalendarAppComponent";
 import injectReducer from "../../../utils/injectReducer";
 import injectSaga from "../../../utils/injectSaga";
@@ -23,18 +22,16 @@ class DashboardContainer extends React.Component {
 
     render() {
         return (
-            <Layout>
+            <div>
                 <Helmet>
                     <title>Dashboard Page</title>
                     <meta name="description" content="A React.js Boilerplate application homepage"/>
                 </Helmet>
-                <AppLayoutWrapper>
-                    <CalendarAppComponent loading={this.props.loading}
-                                       events={this.props.events}
-                                       getEvents={this.props.getEventsFn}
-                                       rooms={this.props.rooms}/>
-                </AppLayoutWrapper>
-            </Layout>
+                <CalendarAppComponent loading={this.props.loading}
+                                   events={this.props.events}
+                                   getEvents={this.props.getEventsFn}
+                                   rooms={this.props.rooms}/>
+            </div>
         );
     }
 }

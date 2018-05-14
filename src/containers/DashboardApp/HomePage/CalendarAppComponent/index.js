@@ -10,9 +10,10 @@ import {Modal, Button, Row, Col, Spin, Select} from 'antd';
 import {makeSelectLocale} from "../../../SharedComponent/LanguageProvider/selectors";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import EventBookingForm from "../EventBookingForm";
-import {bookRooms} from "../actions";
+import {bookRooms, getBookedEvents} from "../actions";
 import {
-    getEventsBookingFormCreated, getEventsBookingFormLoading,
+    getEventsBookingFormBookedEvents,
+    getEventsBookingFormCreated, getEventsBookingFormLoading, getRoomSelectedState,
 } from "../selectors";
 import {FIELDS} from "../EventBookingForm/constants";
 
@@ -46,12 +47,14 @@ class CalendarComponent extends React.Component {
     };
     formatEvents(events) {
         return events ? events.map((event) => {
+            let start = moment(event.startDate).local().toDate();
+            let end = moment(event.endDate).local().toDate();
             return {
                 id: event._id,
                 title: event.name,
                 allDay: false,
-                start: new Date(event.startDate),
-                end: new Date(event.endDate),
+                start,
+                end,
             };
         }) : [];
     };
@@ -65,6 +68,10 @@ class CalendarComponent extends React.Component {
         }
         return result;
     };
+    getBookedEvents = (objQueryEvent) => {
+        console.log(objQueryEvent);
+        this.props.getBookedEventsFn(objQueryEvent);
+    };
     submitEventBooking = (values) => {
         let startTime = moment(values[FIELDS.startTime.id]);
         let endTime = moment(values[FIELDS.endTime.id]);
@@ -76,77 +83,98 @@ class CalendarComponent extends React.Component {
         endDateTime.set('minute', endTime.get('minute'));
         let bookingData = {
             idRoom: values[FIELDS.idRoom.id],
-            startDate: startDateTime.local().format('YYYY-MM-DD HH:mm:ss'),
-            endDate: endDateTime.local().format('YYYY-MM-DD HH:mm:ss'),
+            startDate: startDateTime,
+            endDate: endDateTime,
+            // endDate: endDateTime.format('YYYY-MM-DD HH:mm:ss'),
             name: values[FIELDS.eventName.id]
         };
         this.props.bookRoomsFn(bookingData);
+    };
+    refreshEvent = (idRoom) => {
+        this.props.getEvents(idRoom);
     };
     render() {
         let events = this.props.events;
         events = this.formatEvents(events);
         let rooms = !!this.props.rooms ? this.props.rooms : [];
+        let today = moment();
+        today.hour(0);
+        today.minute(0);
+        today.second(0);
         return (
-            <Spin spinning={this.props.loading}>
-                <div className={'example'}>
-                    <div style={{marginBottom: 30}}>
-                        <Row>
-                            <Col xs={{ span: 8 }}>
-                                <Select placeholder="Room list" style={{ width: 250 }} onChange={this.props.getEvents}>
-                                    {this.renderListRooms(this.props.rooms)}
-                                </Select>
-                            </Col>
-                            <Col xs={{ span: 8 }} />
-                            <Col xs={{ span: 8 }}><Button type="primary" onClick={this.showModal}>Book Meeting</Button></Col>
-                        </Row>
-                        <Modal
-                            title="Booking Room"
-                            visible={this.state.visible}
-                            onCancel={this.handleCancel}
-                            footer={null}
-                        >
-                            <Spin spinning={this.props.eventBookingLoading} >
-                                <EventBookingForm
-                                    onSubmit={this.submitEventBooking}
-                                    rooms={rooms} />
-                            </Spin>
-                        </Modal>
-                    </div>
-
-                    <BigCalendar
-                        events={events}
-                        views={allViews}
-                        step={60}
-                        culture={this.props.locale}
-                        showMultiDayTimes
-                        defaultDate={new Date(2018, 3, 1)}
-                    />
+            <div className={'example'}>
+                <div style={{marginBottom: 30}}>
+                    <Row>
+                        <Col xs={{ span: 24 }} md={{ span: 5, offset: 7 }}>
+                            <Select placeholder="Room list" style={{ width: "70%" }} onChange={this.props.getEvents}>
+                                {this.renderListRooms(this.props.rooms)}
+                            </Select>
+                            {this.props.selectedRoom ?
+                                <Button onClick={() => {this.refreshEvent(this.props.selectedRoom)}}
+                                        style={{marginLeft: '5px'}}
+                                        shape="circle" icon="reload"
+                                        loading={this.props.loading} /> : ''
+                            }
+                        </Col>
+                        <Col xs={{ span: 24 }} md={{ span: 5 }}>
+                            <Button type="primary" onClick={this.showModal}>Book Meeting</Button>
+                        </Col>
+                    </Row>
+                    <Modal
+                        title="Booking Room"
+                        visible={this.state.visible}
+                        onCancel={this.handleCancel}
+                        footer={null}
+                    >
+                        <Spin spinning={this.props.eventBookingLoading} >
+                            <EventBookingForm
+                                bookedEvents={this.props.eventBookingBookedEvents}
+                                getBookedEvents={this.getBookedEvents}
+                                onSubmit={this.submitEventBooking}
+                                rooms={rooms} />
+                        </Spin>
+                    </Modal>
                 </div>
-            </Spin>
+
+                <BigCalendar
+                    events={events}
+                    views={allViews}
+                    step={60}
+                    culture={this.props.locale}
+                    showMultiDayTimes
+                    defaultDate={today.toDate()}
+                />
+            </div>
         );
     }
 }
 CalendarComponent.propTypes = {
     locale: propTypes.string,
+    selectedRoom: propTypes.string,
     loading: propTypes.bool,
     rooms: propTypes.array,
     events: propTypes.array,
     eventBookingLoading: propTypes.bool,
     eventBookingCreated: propTypes.any,
+    eventBookingBookedEvents: propTypes.any,
 
     getEvents: propTypes.func,
     bookRoomsFn: propTypes.func,
+    getBookedEventsFn: propTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
     locale: makeSelectLocale(),
     eventBookingLoading: getEventsBookingFormLoading(),
     eventBookingCreated: getEventsBookingFormCreated(),
+    eventBookingBookedEvents: getEventsBookingFormBookedEvents(),
+    selectedRoom: getRoomSelectedState(),
 });
 
 export function mapDispatchToProps(dispatch) {
     return {
         bookRoomsFn: (objEventBooking) => dispatch(bookRooms(objEventBooking)),
+        getBookedEventsFn: (objQueryEvent) => dispatch(getBookedEvents(objQueryEvent)),
     };
 }
 

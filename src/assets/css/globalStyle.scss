@@ -24,9 +24,10 @@
 #components-layout-demo-custom-trigger .logo {
   background: #fff;
   margin: 16px;
+  text-align: center;
 }
 #components-layout-demo-custom-trigger .logo img{
-  width: 100%;
+  max-width: 80%;
 }
 
 .drawer {
@@ -93,6 +94,9 @@
       white-space: unset;
     }
   }
+}
+.rbc-toolbar button {
+  width: 100px;
 }
 
 .booking-room{

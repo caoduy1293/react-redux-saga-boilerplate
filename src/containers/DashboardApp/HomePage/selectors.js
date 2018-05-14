@@ -35,6 +35,11 @@ const getEventsBookingFormCreated = () => createSelector(
     (pageState) => get(pageState, HomePageStateName.eventBookingFormDataCreate)
 );
 
+const getEventsBookingFormBookedEvents = () => createSelector(
+    selectPageState,
+    (pageState) => get(pageState, HomePageStateName.eventBookingFormBookedEvents)
+);
+
 export {
     selectPageState,
     getLoadingState,
@@ -43,4 +48,5 @@ export {
     getRoomSelectedState,
     getEventsBookingFormLoading,
     getEventsBookingFormCreated,
+    getEventsBookingFormBookedEvents,
 };

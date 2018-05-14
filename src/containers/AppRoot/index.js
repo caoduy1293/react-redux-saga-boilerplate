@@ -8,11 +8,14 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import {Route, Switch} from 'react-router-dom';
+import {Switch} from 'react-router-dom';
 import { Layout } from 'antd';
 import ReduxToastr from 'react-redux-toastr'
 
 import HomePage from '../DashboardApp/HomePage/Loadable';
+import AppWrapped from './AppWrapped';
+import UserApp from '../UserApp/Loadable';
+import RoomApp from '../RoomApp/Loadable';
 import LoginPage from '../AuthApp/LoginPage/Loadable';
 import NotFoundPage from '../SharedComponent/NotFoundPage/Loadable';
 import Footer from '../SharedComponent/Footer';
@@ -24,20 +27,20 @@ import 'nprogress/nprogress.css';
 import './FancyRoute.css'
 
 import FancyRoute from "./FancyRoute";
-import {connect} from "react-redux";
-import {authenticateUser} from "./actions";
+import {ROUTE_TREE} from "./constants";
 
 const rootRoutes = [
     {
-        title: 'Home',
-        path: '/',
+        title: 'Login',
         exact: true,
-        component: RequiredAuth(HomePage)
+        path: '/' + ROUTE_TREE.login,
+        component: LoginPage
     },
     {
-        title: 'Login',
-        path: '/login',
-        component: LoginPage
+        title: 'Home',
+        path: '/',
+        // exact: true,
+        component: RequiredAuth(AppWrapped)
     },
     {
         title: 'Not Found',
@@ -62,7 +65,7 @@ class App extends React.Component{
                         <FancyRoute key={i} {...route} />
                     )}
                 </Switch>
-                <Footer />
+                {/*<Footer />*/}
                 <ReduxToastr
                     timeOut={4000}
                     newestOnTop={true}

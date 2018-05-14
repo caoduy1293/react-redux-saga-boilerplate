@@ -16,26 +16,30 @@ export default function (ComposedComponent) {
 
         componentWillMount() {
             let token  = localStorage.getItem(LOCAL_STORAGE_ID_KEY.token);
-            if(token) {
+            if(!!token) {
                 try {
                     let decodedToken = jwt_decode(token);
-                    let expTime = decodedToken.exp;
-                    let currentTime = moment().unix();
-                    if(expTime < currentTime) {
+                    // let expTime = decodedToken.exp;
+                    let expTime = moment.unix(decodedToken.exp);
+                    let currentTime = moment();
+                    if(expTime.isBefore(currentTime)) {
+                        localStorage.removeItem(LOCAL_STORAGE_ID_KEY.token);
                         this.context.router.history.push('/' + ROUTE_TREE.login);
                     }
                 } catch (error) {
                     console.log(error);
+                    localStorage.removeItem(LOCAL_STORAGE_ID_KEY.token);
                     this.context.router.history.push('/' + ROUTE_TREE.login);
                 }
             } else {
+                localStorage.removeItem(LOCAL_STORAGE_ID_KEY.token);
                 this.context.router.history.push('/' + ROUTE_TREE.login);
             }
         }
 
         componentWillUpdate(nextProps) {
-            if (!nextProps.authenticatedUser) {
-                this.context.router.history.push('/');
+            if (!localStorage.getItem(LOCAL_STORAGE_ID_KEY.token)) {
+                this.context.router.history.push('/' + ROUTE_TREE.login);
             }
         }
 

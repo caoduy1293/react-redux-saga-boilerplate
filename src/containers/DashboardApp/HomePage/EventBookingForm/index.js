@@ -1,7 +1,7 @@
 import React from "react";
 import propTypes from "prop-types";
 import { reduxForm, Field } from "redux-form/immutable";
-import {Form, Select, Button, DatePicker, TimePicker, Input} from "antd";
+import {Form, Select, Button, DatePicker, TimePicker, Input, Tag} from "antd";
 import {connect} from "react-redux";
 
 import {EVENT_BOOKING_FORM_ID} from "../constants";
@@ -22,6 +22,26 @@ const ADatePicker = FormFieldForDatePicker(DatePicker);
 const ATimePicker = FormFieldForTimePicker(TimePicker);
 
 class EventBookingForm extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            idRoom: '',
+            startDate: null,
+            bookedEvents: props.bookedEvents,
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.idRoom && nextProps.startDate && (nextProps.idRoom !== this.state.idRoom
+            || moment(nextProps.startDate).format('MM-DD-YYYY') !== moment(this.state.startDate).format('MM-DD-YYYY')) ) {
+            this.setState({
+                idRoom: nextProps.idRoom,
+                startDate: nextProps.startDate
+            });
+            nextProps.getBookedEvents({idRoom: nextProps.idRoom, startDate: moment(nextProps.startDate).toDate()});
+        }
+    }
+
     render () {
         const {
             startDate,
@@ -32,6 +52,7 @@ class EventBookingForm extends React.Component{
             reset,
             submitting,
         } = this.props;
+        let bookedEvents = this.props.bookedEvents ? this.props.bookedEvents : [];
         return (
             <Form onSubmit={handleSubmit}>
                 <Field
@@ -57,10 +78,13 @@ class EventBookingForm extends React.Component{
                        hasFeedback>
                 </Field>
 
-                <FormItem label={'Time Booked'}>
-                    <div>
-                        Time Booked
-                    </div>
+                <FormItem label={'Booked Time'}>
+                    {bookedEvents.length > 0 ? bookedEvents.map((bookedEvent, i) => {
+                        return (<Tag>{bookedEvent.name + ' '
+                        + moment(bookedEvent.startDate).format('HH:mm') + ' - '
+                        + moment(bookedEvent.endDate).format('HH:mm') + ' '
+                        + moment(bookedEvent.startDate).format('DD/MM/YYYY')}</Tag>);
+                    }) : 'Empty'}
                 </FormItem>
 
                 <Field label={FIELDS.startTime.label}
@@ -102,13 +126,18 @@ class EventBookingForm extends React.Component{
 }
 
 EventBookingForm.propTypes = {
-    rooms: propTypes.array,
-    loading: propTypes.bool,
+    //form state
     eventName: propTypes.any,
     idRoom: propTypes.any,
     startDate: propTypes.any,
     startTime: propTypes.any,
     endTime: propTypes.any,
+
+    //HOC props
+    rooms: propTypes.array,
+    bookedEvents: propTypes.any,
+    handleSubmit: propTypes.any,
+    getBookedEvents: propTypes.func,
 };
 
 const validate = values => {

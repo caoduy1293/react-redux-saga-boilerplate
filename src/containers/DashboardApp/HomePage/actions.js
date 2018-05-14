@@ -69,3 +69,27 @@ export function bookRoomsError(res) {
         res
     };
 }
+
+export const GET_BOOKED_EVENTS = 'BookingApp/GET_BOOKED_EVENTS';
+export const GET_BOOKED_EVENTS_SUCCESS = 'BookingApp/GET_BOOKED_EVENTS_SUCCESS';
+export const GET_BOOKED_EVENTS_ERROR = 'BookingApp/GET_BOOKED_EVENTS_ERROR';
+
+export function getBookedEvents(objQueryEvent) {
+    return {
+        type: GET_BOOKED_EVENTS,
+        objQueryEvent
+    };
+}
+export function getBookedEventsSuccess(res) {
+    return {
+        type: GET_BOOKED_EVENTS_SUCCESS,
+        res
+    };
+}
+
+export function getBookedEventsError(res) {
+    return {
+        type: GET_BOOKED_EVENTS_ERROR,
+        res
+    };
+}

@@ -5,7 +5,10 @@ export const LOCAL_STORAGE_ID_KEY = {
     token: 'app-token',
 };
 export const ROUTE_TREE = {
+    home: 'home',
     login: 'login',
+    userApp: 'user',
+    roomApp: 'room-management',
 };
 const APP_ROOT_API = 'v1/';
 export const API_URL = {
@@ -18,5 +21,9 @@ export const API_URL = {
         getRooms: `${APP_ROOT_API}rooms`,
         bookRoom: `${APP_ROOT_API}events`,
         getEvents: `${APP_ROOT_API}events?idRoom={idRoom}`,
+        getBookedEvents: `${APP_ROOT_API}events/eventsBooked?idRoom={idRoom}&selectedDate={selectedDate}`,
     },
+    userApp: {
+        getUsers: `${APP_ROOT_API}users`,
+    }
 };

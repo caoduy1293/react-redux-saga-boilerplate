@@ -1,0 +1,3 @@
+export const SELECTOR_ID_PAGE = 'ROOM_APP';
+
+export const EVENT_BOOKING_FORM_ID = 'ROOM_FORM_ID';

@@ -28,6 +28,7 @@ function checkStatus(response) {
         return response;
     }
     if(response.status === 401) {
+        localStorage.removeItem(LOCAL_STORAGE_ID_KEY.token);
         push('/' + ROUTE_TREE.login);
     }
     const error = new Error(response.statusText);

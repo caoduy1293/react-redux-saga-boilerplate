@@ -24,6 +24,7 @@ export class LoginPage extends React.Component { // eslint-disable-line react/pr
     };
     componentDidMount() {
         if(localStorage.getItem(LOCAL_STORAGE_ID_KEY.token)) {
+            console.log(localStorage.getItem(LOCAL_STORAGE_ID_KEY.token));
             this.context.router.history.push('/');
         }
     }

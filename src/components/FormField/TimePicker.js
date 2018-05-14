@@ -39,6 +39,7 @@ const FormFieldForTimePicker = Component => ({input, meta, children, hasFeedback
             <Component onChange={(date) => {input.onChange(date)}}
                        disabledHours={() => disabledHoursBaseOneSelectedDate(startDateTemp, typeTime, startTimeTemp)}
                        minuteStep={15}
+                       defaultOpenValue={moment('08:00', 'HH:mm')}
                        format={'HH:mm'}
                        hideDisabledOptions={true}
                        value={!!valueDate ? valueDate : null} />

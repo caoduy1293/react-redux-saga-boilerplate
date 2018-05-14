@@ -1,20 +1,45 @@
-import React from 'react';
+import React from "react";
 import {Icon, Layout} from "antd";
 import {enquireScreen} from 'enquire-js';
+import {Switch} from "react-router-dom";
 
-import SiderComponent from "../SiderComponent";
-import 'rc-drawer-menu/assets/index.css';
+import HomePage from '../DashboardApp/HomePage/Loadable';
+import UserApp from '../UserApp/Loadable';
+import RoomApp from '../RoomApp/Loadable';
+import RequiredAuth from '../AuthApp/AuthorizationRequired';
+import {ROUTE_TREE} from "./constants";
 
 import logo from './company_logo.png';
+import SiderComponent from "../SharedComponent/SiderComponent/index";
+import FancyRoute from "./FancyRoute";
+
+import 'rc-drawer-menu/assets/index.css';
 
 const {Header, Content} = Layout;
-
+const rootRoutes = [
+    {
+        title: 'Home',
+        path: '/',
+        exact: true,
+        component: HomePage
+    },
+    {
+        title: 'User App',
+        path: '/' + ROUTE_TREE.userApp,
+        component: UserApp
+    },
+    {
+        title: 'Room App',
+        path: '/' + ROUTE_TREE.roomApp,
+        component: RoomApp
+    },
+];
 let isMobile;
 enquireScreen(b => {
     isMobile = b;
 });
 
-class AppLayoutWrapper extends React.Component {
+class AppWrapped extends React.Component{
     state = {
         isMobile,
         open: true,
@@ -37,7 +62,6 @@ class AppLayoutWrapper extends React.Component {
             open: false,
         });
     };
-
     render() {
         return (
             <Layout id={'components-layout-demo-custom-trigger'}>
@@ -51,7 +75,11 @@ class AppLayoutWrapper extends React.Component {
                         />
                     </Header>
                     <Content style={{margin: '24px 16px', padding: 10, background: '#fff'}}>
-                        {this.props.children}
+                        <Switch>
+                            {rootRoutes.map((route, i) =>
+                                <FancyRoute key={i} {...route} />
+                            )}
+                        </Switch>
                     </Content>
                 </Layout>
             </Layout>
@@ -59,4 +87,5 @@ class AppLayoutWrapper extends React.Component {
     }
 }
 
-export default AppLayoutWrapper;
+// const connectedApp = connect(null)(App);
+export default AppWrapped;

@@ -2,10 +2,26 @@ import React from "react";
 import propTypes from "prop-types";
 import {Icon, Layout, Menu} from "antd";
 import {Link} from "react-router-dom";
+import {ROUTE_TREE} from "../../AppRoot/constants";
 
 const { Sider } = Layout;
 
 class SiderMenu extends React.Component {
+    static contextTypes = {
+        router: propTypes.object,
+    };
+    state = {
+        theme: 'dark',
+        current: ROUTE_TREE.home,
+    };
+    handleClick = (e) => {
+        let urlGo = e.key;
+        urlGo = urlGo !== ROUTE_TREE.home ? urlGo : '';
+        this.setState({
+            current: e.key,
+        });
+        this.context.router.history.push('/' + urlGo);
+    };
     render() {
         const { logo, collapsed, onCollapse } = this.props;
         return (
@@ -23,18 +39,22 @@ class SiderMenu extends React.Component {
                         <img src={logo} alt="logo" />
                     </Link>
                 </div>
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                    <Menu.Item key="1">
+                <Menu theme={this.state.theme}
+                      mode="inline"
+                      onClick={this.handleClick}
+                      selectedKeys={[this.state.current]}>
+                    <Menu.Item key={ROUTE_TREE.home}>
+                        <Icon type="home" />
+                        <span>Home</span>
+                    </Menu.Item>
+                    <Menu.Item key={ROUTE_TREE.userApp}>
                         <Icon type="user" />
-                        <span>nav 1</span>
+                        <span>User Management
+                        </span>
                     </Menu.Item>
-                    <Menu.Item key="2">
-                        <Icon type="video-camera" />
-                        <span>nav 2</span>
-                    </Menu.Item>
-                    <Menu.Item key="3">
-                        <Icon type="upload" />
-                        <span>nav 3</span>
+                    <Menu.Item key={ROUTE_TREE.roomApp}>
+                        <Icon type="appstore-o" />
+                        <span>Room Management</span>
                     </Menu.Item>
                 </Menu>
             </Sider>

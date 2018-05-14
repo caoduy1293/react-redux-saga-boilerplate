@@ -1,6 +1,9 @@
 import { put, call, fork, select, takeEvery, all } from 'redux-saga/effects';
 import {
-    BOOK_ROOM, bookRoomsError, bookRoomsSuccess, GET_EVENTS, GET_ROOMS, getEventsError, getEventsSuccess, getRoomsError,
+    BOOK_ROOM, bookRoomsError, bookRoomsSuccess, GET_BOOKED_EVENTS, GET_EVENTS, GET_ROOMS, getBookedEventsError,
+    getBookedEventsSuccess,
+    getEventsError,
+    getEventsSuccess, getRoomsError,
     getRoomsSuccess
 } from "./actions";
 import request from "../../../utils/request";
@@ -20,7 +23,7 @@ export function* getRoomsServer() {
     } catch (error) {
         yield put(getRoomsError(error));
         nprogress.done();
-        toastr.error('', 'Get rooms fail !');
+        toastr.error('', 'Get rooms fail');
     }
 }
 
@@ -34,11 +37,11 @@ export function* getEventsServer(action) {
         });
         yield put(getEventsSuccess(res));
         nprogress.done();
-        toastr.success('', 'Get events successfully !');
+        toastr.success('', 'Get events successfully');
     } catch (error) {
         yield put(getEventsError(error));
         nprogress.done();
-        toastr.error('', 'Get events fail !');
+        toastr.error('', 'Get events fail');
     }
 }
 
@@ -54,10 +57,10 @@ export function* bookRoomServer(action) {
             body: JSON.stringify(eventBookingObj),
         });
         yield put(bookRoomsSuccess(res));
-        toastr.success('', 'Book room successfully !');
+        toastr.success('', 'Book room successfully');
     } catch (error) {
         yield put(bookRoomsError(error));
-        toastr.error('', 'Book room fail !');
+        toastr.error('', 'Book room fail');
     }
 }
 
@@ -83,10 +86,36 @@ export function* watchBookRoom() {
     */
     yield takeEvery(BOOK_ROOM, bookRoomServer);
 }
+export function* watchGetBookedEvents() {
+    /*
+      takeEvery will fork a new `getAllProducts` task on each GET_ALL_PRODUCTS actions
+      i.e. concurrent GET_ALL_PRODUCTS actions are allowed
+    */
+    yield takeEvery(GET_BOOKED_EVENTS, getBookedEventsServer);
+}
+export function* getBookedEventsServer(action) {
+    try {
+        let objQueryEvent = action.objQueryEvent;
+        let url = API_URL.dashboardApp.getBookedEvents.replace("{idRoom}", objQueryEvent.idRoom);
+        url = url.replace("{selectedDate}", objQueryEvent.startDate);
+        const res = yield call(request, url, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        yield put(getBookedEventsSuccess(res));
+        toastr.success('', 'Get booked events successfully');
+    } catch (error) {
+        yield put(getBookedEventsError(error));
+        toastr.error('', 'Get booked events fail');
+    }
+}
 export default function* pageSaga() {
     yield all([
         fork(watchGetRooms),
         fork(watchGetEvents),
         fork(watchBookRoom),
+        fork(watchGetBookedEvents),
     ]);
 }
