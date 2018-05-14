@@ -2,42 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b6695c2-5d32-44a9-b6a4-06e1ba4ba06a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/AppRoot/AppWrapped.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/RoomApp/Loadable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/RoomApp/actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/RoomApp/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/RoomApp/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/RoomApp/reducer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/RoomApp/saga.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/RoomApp/selectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/Loadable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/UserFom/UserForm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/actions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/reducer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/saga.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/containers/UserApp/selectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/utils/injectReducerV2.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/containers/SharedComponent/AppLayoutWrapper/index.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/globalStyle.css" afterPath="$PROJECT_DIR$/src/assets/css/globalStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/globalStyle.css.map" afterPath="$PROJECT_DIR$/src/assets/css/globalStyle.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/globalStyle.scss" afterPath="$PROJECT_DIR$/src/assets/css/globalStyle.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/FormField/TimePicker.js" afterPath="$PROJECT_DIR$/src/components/FormField/TimePicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/AppRoot/constants.js" afterPath="$PROJECT_DIR$/src/containers/AppRoot/constants.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/AppRoot/index.js" afterPath="$PROJECT_DIR$/src/containers/AppRoot/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/AuthApp/AuthorizationRequired.js" afterPath="$PROJECT_DIR$/src/containers/AuthApp/AuthorizationRequired.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/AuthApp/LoginPage/index.js" afterPath="$PROJECT_DIR$/src/containers/AuthApp/LoginPage/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/CalendarAppComponent/index.js" afterPath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/CalendarAppComponent/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/EventBookingForm/index.js" afterPath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/EventBookingForm/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/actions.js" afterPath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/index.js" afterPath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/reducer.js" afterPath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/reducer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/saga.js" afterPath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/saga.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/selectors.js" afterPath="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/selectors.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/containers/SharedComponent/SiderComponent/SiderMenu.js" afterPath="$PROJECT_DIR$/src/containers/SharedComponent/SiderComponent/SiderMenu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/request.js" afterPath="$PROJECT_DIR$/src/utils/request.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/containers/SharedComponent/AppLayoutWrapper/company_logo.png" afterPath="$PROJECT_DIR$/src/containers/AppRoot/company_logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -98,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="constants.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/UserApp/constants.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
@@ -108,11 +74,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            <state relative-caret-position="168">
+              <caret line="8" column="34" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="8" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -133,16 +109,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1575">
               <caret line="80" column="46" lean-forward="false" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reducer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/UserApp/reducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -214,7 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/calendarComponent/index.js" />
         <option value="$PROJECT_DIR$/src/components/FormField/DatePicker.js" />
         <option value="$PROJECT_DIR$/src/components/constants.js" />
         <option value="$PROJECT_DIR$/src/containers/DashboardApp/HomePage/EventBookingForm/selectorEventBookingForm.js" />
@@ -265,6 +230,7 @@
         <option value="$PROJECT_DIR$/src/containers/UserApp/UserFom/UserForm.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/src/containers/UserApp/constants.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -310,24 +276,6 @@
             <path>
               <item name="react-redux-saga-boilerplate" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-redux-saga-boilerplate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-redux-saga-boilerplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-redux-saga-boilerplate" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-redux-saga-boilerplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-redux-saga-boilerplate" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react-redux-saga-boilerplate" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react-redux-saga-boilerplate" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="UserApp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -382,7 +330,7 @@
       <workItem from="1525427540045" duration="71257000" />
       <workItem from="1525943895500" duration="3005000" />
       <workItem from="1526007861962" duration="2534000" />
-      <workItem from="1526268352723" duration="589000" />
+      <workItem from="1526268352723" duration="861000" />
     </task>
     <task id="LOCAL-00001" summary="booking_app : enhance authenticate, booking features">
       <created>1525680561938</created>
@@ -402,19 +350,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178549000" />
+    <option name="totallyTimeSpent" value="178821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1274458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2841981" sideWeight="0.5462718" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2841981" sideWeight="0.5483871" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.49814913" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.24378635" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.24272871" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2841981" sideWeight="0.4537282" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2841981" sideWeight="0.4516129" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -445,13 +394,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/containers/AppRoot/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
@@ -773,18 +715,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.babelrc" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/UserApp/constants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="20" column="2" lean-forward="false" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="34" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="8" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
